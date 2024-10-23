@@ -1,0 +1,90 @@
+$primary-color: #333;
+$secondary-color: #555;
+$font-color: #fff;
+$spacing: 1rem;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.header,
+.footer {
+  background-color: $primary-color;
+  color: $font-color;
+  padding: $spacing;
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &__nav {
+    @include flex-center;
+
+    &-list {
+      list-style: none;
+      display: flex;
+      gap: $spacing;
+    }
+
+    &-link {
+      color: $font-color;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+.main {
+  padding: $spacing;
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: calc($spacing + 0.5rem);
+
+    &__cards {
+      display: flex;
+      gap: calc($spacing * 2);
+    }
+  }
+}
+
+.card {
+  padding: $spacing;
+  width: 200px;
+  text-align: center;
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__title {
+    margin: $spacing 0;
+    font-size: 1.2rem;
+    color: $primary-color;
+  }
+
+  &__description {
+    font-size: $spacing;
+    color: $font-color;
+  }
+}
